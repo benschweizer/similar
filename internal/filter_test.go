@@ -1,7 +1,6 @@
-package main
+package internal
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -19,9 +18,9 @@ func TestNoneFilter(t *testing.T) {
 		{"foo=1,bar=2", "foo=1,bar=2"},
 	}
 	for _, tt := range tests {
-		testname := fmt.Sprintf("%s", tt.s)
+		testname := tt.s
 		t.Run(testname, func(t *testing.T) {
-			ret := noneFilter(tt.s)
+			ret := NoneFilter(tt.s)
 			if ret != tt.want {
 				t.Errorf("got %s, want %s", ret, tt.want)
 			}
@@ -43,9 +42,9 @@ func TestExactFilter(t *testing.T) {
 		{"foo=1,bar=2", "foo=1,bar=2"},
 	}
 	for _, tt := range tests {
-		testname := fmt.Sprintf("%s", tt.s)
+		testname := tt.s
 		t.Run(testname, func(t *testing.T) {
-			ret := exactFilter(tt.s)
+			ret := ExactFilter(tt.s)
 			if ret != tt.want {
 				t.Errorf("got %s, want %s", ret, tt.want)
 			}
@@ -67,9 +66,9 @@ func TestNumbersFilter(t *testing.T) {
 		{"foo=1,bar=2", "foo=,bar="},
 	}
 	for _, tt := range tests {
-		testname := fmt.Sprintf("%s", tt.s)
+		testname := tt.s
 		t.Run(testname, func(t *testing.T) {
-			ret := numbersFilter(tt.s)
+			ret := NumbersFilter(tt.s)
 			if ret != tt.want {
 				t.Errorf("got %s, want %s", ret, tt.want)
 			}
@@ -91,9 +90,9 @@ func TestSignatureFilter(t *testing.T) {
 		{"foo=1,bar=2", "=,="},
 	}
 	for _, tt := range tests {
-		testname := fmt.Sprintf("%s", tt.s)
+		testname := tt.s
 		t.Run(testname, func(t *testing.T) {
-			ret := signatureFilter(tt.s)
+			ret := SignatureFilter(tt.s)
 			if ret != tt.want {
 				t.Errorf("got %s, want %s", ret, tt.want)
 			}

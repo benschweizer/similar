@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	"github.com/benschweizer/similar/internal"
 )
 
 const usage = `similar is an unix pipeline dropin that deduplicates similar lines. It is inspired
@@ -26,10 +28,9 @@ example:
 `
 
 var verbose bool
-var no_counter bool
 
 func main() {
-	var filter Filter = numbersFilter
+	var filter internal.Filter = internal.NumbersFilter
 
 	flag.BoolVar(&verbose, "verbose", false, "verbose output")
 	flag.BoolVar(&verbose, "v", false, "verbose output")
@@ -43,13 +44,13 @@ func main() {
 	flag.Parse()
 
 	if *noneFlag {
-		filter = noneFilter
+		filter = internal.NoneFilter
 	} else if *exactFlag {
-		filter = exactFilter
+		filter = internal.ExactFilter
 	} else if *numbersFlag {
-		filter = numbersFilter
+		filter = internal.NumbersFilter
 	} else if *signatureFlag {
-		filter = signatureFilter
+		filter = internal.SignatureFilter
 	}
 
 	filenames := flag.Args()
@@ -57,5 +58,5 @@ func main() {
 		filenames = []string{"-"}
 	}
 
-	process(filenames, filter)
+	internal.Process(filenames, filter)
 }

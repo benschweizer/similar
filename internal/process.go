@@ -1,4 +1,4 @@
-package main
+package internal
 
 import (
 	"bufio"
@@ -7,7 +7,7 @@ import (
 )
 
 // Loops over a list of files, applies a filter and prints non-deduplicatedlines
-func process(filenames []string, filter Filter) {
+func Process(filenames []string, filter Filter) {
 	var f *os.File
 	var firstline string
 	var filtered_firstline string
@@ -16,9 +16,6 @@ func process(filenames []string, filter Filter) {
 	var cnt uint64
 
 	for _, filename := range filenames {
-		if verbose {
-			println("processing", filename)
-		}
 		if filename == "-" {
 			f = os.Stdin
 		} else {
@@ -47,7 +44,6 @@ func process(filenames []string, filter Filter) {
 				fmt.Println(cnt, "\t", firstline)
 				cnt = 1
 				firstline = line
-				filtered_firstline = filtered_line
 			}
 		}
 		fmt.Println(cnt, "\t", firstline)

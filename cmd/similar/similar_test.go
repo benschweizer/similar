@@ -1,6 +1,6 @@
 package main
 
-func ExampleMain() {
+func Examplemain() {
 	main()
 	// Output:
 	//

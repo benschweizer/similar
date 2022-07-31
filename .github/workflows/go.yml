@@ -19,14 +19,8 @@ jobs:
             goos: darwin
           - goarch: arm64
             goos: windows
-      steps:
+    steps:
       - uses: actions/setup-go@v1
       - uses: actions/checkout@v1
-      - name: test
-        run: go test ./cmd/...
-				env:
-					GOPROXY: "https://proxy.golang.org"
-      - name: build
-        run: go build ./cmd/...
-				env:
-					GOPROXY: "https://proxy.golang.org"
+      - run: go test ./cmd/...
+      - run: go build ./cmd/...

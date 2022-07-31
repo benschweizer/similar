@@ -1,6 +1,6 @@
 # release
 
-name: release
+name: Release
 on:
   release:
     types: [created]

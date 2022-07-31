@@ -1,5 +1,5 @@
 # similar - dedup similar lines in unix pipelines
-[![.github/workflows/release.yaml](https://github.com/benschweizer/similar/actions/workflows/release.yaml/badge.svg)](https://github.com/benschweizer/similar/actions/workflows/release.yaml)
+[![build](https://github.com/benschweizer/similar/actions/workflows/go.yml/badge.svg)](https://github.com/benschweizer/similar/actions/workflows/go.yml)
 
 `similar` is an unix pipeline dropin that deduplicates similar lines.
 It is inspired by Grafana's [log deduplication feature](https://github.com/grafana/loki/issues/28) and brings this to the command line. It's intended use is along with other text-utils

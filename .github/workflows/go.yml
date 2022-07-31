@@ -22,9 +22,11 @@ jobs:
       steps:
       - uses: actions/setup-go@v1
       - uses: actions/checkout@v1
-      - run: go test ./cmd/...
+      - name: test
+        run: go test ./cmd/...
 				env:
 					GOPROXY: "https://proxy.golang.org"
-      - run: go build ./cmd/...
+      - name: build
+        run: go build ./cmd/...
 				env:
 					GOPROXY: "https://proxy.golang.org"

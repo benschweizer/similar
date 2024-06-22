@@ -21,7 +21,7 @@ jobs:
             goos: windows
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-    - uses: wangyoucao577/go-release-action@23b3194d60e5291b78d4ebf84705f5d6c5a74c0e # v1.46
+    - uses: wangyoucao577/go-release-action@6ac7dba1f9e61850053324549cb6bc88e4b473d2 # v1.51
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
